@@ -1,0 +1,10 @@
+<div class="container">
+    <h1>Por favor digite seu nome de usuario</h1>
+    <form>
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input name="nome" id="nome" required [(ngModel)]="userName">
+        </div>
+        <button (click)="login()" >enviar</button>
+    </form>
+</div>

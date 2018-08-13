@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+    database:
+        image: mysql:5.7
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: aktienow
+		
+    backend:
+        build: .
+        links:
+            - database
+        working_dir: /backend
+        command: sh -c "yarn install && yarn run watch"
+        
+    frontend:
+        build: .
+        links:
+            - backend:localhost
+        working_dir: /frontend
+        command: sh -c "npm install && npm run start"

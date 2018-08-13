@@ -1,0 +1,14 @@
+<div class="container">
+    <h1>Faça o seu login de admin</h1>
+    <form>
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input name="nome" id="nome" required [(ngModel)]="userName">
+        </div>
+        <div class="form-group">
+            <label for="senha">Senha</label>
+            <input name="senha" id="senha" required [(ngModel)]="pass">
+        </div>
+        <button (click)="login()" >enviar</button>
+    </form>
+</div>

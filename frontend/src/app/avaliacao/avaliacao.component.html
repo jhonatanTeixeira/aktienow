@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Avalie o livro</h1>
+    <form #avaliacaoForm="ngForm" (submit)="save()">
+        <div class="form-group">
+            <label for="livro">Livro</label>
+            <select name="nome" id="livro" required [(ngModel)]="avaliacao.livro">
+                <option *ngFor="let livro of livros" value="{{livro.id}}">{{livro.nome}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="estadoConservacao">Estado de conservação</label>
+            <select name="estadoConservacao" id="estadoConservacao" required [(ngModel)]="avaliacao.estadoConservacao">
+                <option *ngFor="let estadoConservacao of estadosConservacao" value="{{estadoConservacao}}">{{estadoConservacao}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="nota">Nota</label>
+            <input type="number" min="1" max="10" name="nota" id="nota" required [(ngModel)]="avaliacao.nota">
+        </div>
+        <div class="form-group">
+            <label for="observacoes">Observacoes</label>
+            <textarea name="observacoes" id="observacoes" required [(ngModel)]="avaliacao.observacao"></textarea>
+        </div>
+        <button type="submit" [disabled]="!avaliacaoForm.form.valid">Enviar</button>
+    </form>
+</div>
