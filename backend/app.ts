@@ -22,7 +22,7 @@ createConnection().then(async connection => {
 
     app.use(jwt({
         secret: JWT_SECRET
-    }).unless({path: ['/login']}));
+    }).unless({path: ['/login', '/admin/login']}));
 
     routes.forEach((route: object) => {
         app[route.method](route.path, guard.check(route.guard).unless({path: ['/login', '/admin/login']}), (request: Request, response: Response, next: any) => {
